@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Dashboard - Doação Premiada</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="dashboard-doador.css">
+</head>
+<body>
+
+    <!-- Navbar do Doador -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard-doador.html">Olá!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDoador" aria-controls="navbarNavDoador" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDoador">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#saldo">Meu Saldo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#historico">Minhas Doações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Sair</a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Meu Painel de Doador</h1>
+
+        <!-- Seção de Saldo e Resgate -->
+        <div id="saldo" class="doador-card text-center">
+            <h2 class="mb-3">Seu Saldo de Créditos</h2>
+            <p class="saldo-label">Créditos Acumulados:</p>
+            <p class="saldo-display"><i class="bi bi-currency-dollar"></i> 250</p>
+            <p class="text-muted">Continue doando para acumular mais descontos!</p>
+            
+            <div class="action-buttons mt-4">
+                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#resgateCreditosModal">
+                    <i class="bi bi-bag-check me-2"></i> Resgatar Créditos
+                </button>
+                <a href="registro-doacao.html" class="btn btn-outline-success btn-lg">
+                    <i class="bi bi-box-seam me-2"></i> Como Doar Roupas
+                </a>
+            </div>
+        </div>
+
+        <!-- Histórico de Doações e Créditos -->
+        <div id="historico" class="doador-card">
+            <h2 class="mb-4">Minhas Últimas Doações</h2>
+            <div class="table-responsive">
+                <table class="table table-striped history-table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Local da Doação</th>
+                            <th>Qtd. Roupas</th>
+                            <th>Créditos Recebidos</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-10-20</td>
+                            <td>Loja A - Centro</td>
+                            <td>10</td>
+                            <td class="text-success">R$ 20,00</td>
+                            <td><span class="badge bg-success">Validado</span></td>
+                        </tr>
+                        <tr>
+                            <td>2023-09-05</td>
+                            <td>Loja B - Shopping</td>
+                            <td>5</td>
+                            <td class="text-success">R$ 10,00</td>
+                            <td><span class="badge bg-success">Validado</span></td>
+                        </tr>
+                        <tr>
+                            <td>2023-08-12</td>
+                            <td>Loja A - Centro</td>
+                            <td>8</td>
+                            <td class="text-success">R$ 16,00</td>
+                            <td><span class="badge bg-success">Validado</span></td>
+                        </tr>
+                        <tr>
+                            <td>2023-07-01</td>
+                            <td>Loja C - Bairro</td>
+                            <td>12</td>
+                            <td class="text-success">R$ 24,00</td>
+                            <td><span class="badge bg-success">Validado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-center mt-3 text-muted">A quantidade de créditos pode variar por loja ou promoção.</p>
+        </div>
+    </div>
+
+    <!-- Modal de Resgate de Créditos -->
+    <div class="modal fade" id="resgateCreditosModal" tabindex="-1" aria-labelledby="resgateCreditosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="resgateCreditosModalLabel">Resgatar Créditos</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Seu saldo atual: <strong><span id="saldoAtualModal">250</span> Créditos</strong></p>
+                    <form action="/api/creditos/resgatar" method="POST">
+                        <div class="mb-3">
+                            <label for="valorResgate" class="form-label">Valor em Créditos para Resgatar (R$)</label>
+                            <input type="number" class="form-control" id="valorResgate" name="valorResgate" min="1" max="250" placeholder="Ex: 50" required>
+                            <div class="form-text">Cada 1 crédito equivale a R$1,00 de desconto.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lojaResgate" class="form-label">Loja para Utilizar o Desconto</label>
+                            <select class="form-select" id="lojaResgate" name="lojaResgate" required>
+                                <option selected disabled value="">Selecione uma loja</option>
+                                <option value="loja-a">Loja A - Centro</option>
+                                <option value="loja-b">Loja B - Shopping</option>
+                                <option value="loja-c">Loja C - Bairro</option>
+                            </select>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg">Gerar Cupom de Desconto</button>
+                        </div>
+                    </form>
+                    <div id="cupomGerado" class="alert alert-info mt-4 text-center d-none">
+                        <h4>Seu cupom foi gerado!</h4>
+                        <p>Apresente o código abaixo no caixa da loja selecionada:</p>
+                        <strong class="h3">CUPOM123ABC</strong>
+                        <p class="mt-2">Válido por 7 dias. Não cumulativo com outras promoções.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS e Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Simulação de geração de cupom
+        document.querySelector('#resgateCreditosModal form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            setTimeout(() => {
+                document.getElementById('cupomGerado').classList.remove('d-none');
+            }, 1000);
+        });
+
+        // Atualizar saldo no modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const saldoAtual = 250;
+            document.getElementById('saldoAtualModal').textContent = saldoAtual;
+            document.getElementById('valorResgate').setAttribute('max', saldoAtual);
+        });
+    </script>
+</body>
+</html>

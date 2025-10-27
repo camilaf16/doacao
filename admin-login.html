@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Administrador - VestePoints</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;500&display=swap" 
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #7BA05B !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: #555 !important;
+            font-weight: 500;
+        }
+
+        .admin-auth-container {
+            max-width: 480px;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+        }
+
+        .admin-auth-container h2 {
+            margin-bottom: 30px;
+            color: #7BA05B;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .input-group-text {
+            background-color: #7BA05B;
+            color: white;
+            border-color: #7BA05B;
+        }
+
+        .btn-primary {
+            background-color: #7BA05B;
+            border-color: #7BA05B;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: #6e8f4f;
+            border-color: #6e8f4f;
+        }
+
+        .btn-success {
+            background-color: #6e8f4f;
+            border-color: #6e8f4f;
+            font-weight: 500;
+        }
+
+        .btn-success:hover {
+            background-color: #5d7a43;
+            border-color: #5d7a43;
+        }
+
+        .toggle-form-link {
+            cursor: pointer;
+            color: #7BA05B;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+
+        .toggle-form-link:hover {
+            color: #6e8f4f;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        a {
+            color: #7BA05B;
+        }
+
+        a:hover {
+            color: #5d7a43;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">VestePoints</a>
+            <div class="collapse navbar-collapse" id="navbarNavAdminLogin">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container -->
+    <div class="container">
+        <div class="admin-auth-container">
+            <h2 id="formTitle"><i class="bi bi-shield-lock me-2"></i> Acesso Administrativo</h2>
+
+            <!-- Login Administrativo -->
+            <div id="loginForm" class="form-section active">
+                <form action="/api/admin/login" method="POST">
+                    <div class="mb-3">
+                        <label for="adminEmailLogin" class="form-label">Email do Administrador</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                            <input type="email" class="form-control" id="adminEmailLogin" name="email" placeholder="email@exemplo.com" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="adminSenhaLogin" class="form-label">Senha</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                            <input type="password" class="form-control" id="adminSenhaLogin" name="senha" required>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+                        <a href="#" class="btn btn-link text-center">Esqueceu sua senha?</a>
+                        <p class="text-center mt-3">
+                            Não possui uma conta de administrador?
+                            <span class="toggle-form-link" data-target="registerForm">Cadastre-se aqui</span>.
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Cadastro Administrativo -->
+            <div id="registerForm" class="form-section">
+                <form action="/api/admin/register" method="POST">
+                    <div class="mb-3">
+                        <label for="adminNome" class="form-label">Nome Completo</label>
+                        <input type="text" class="form-control" id="adminNome" name="nomeCompleto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="adminEmailRegister" class="form-label">Email do Administrador</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                            <input type="email" class="form-control" id="adminEmailRegister" name="email" placeholder="email@exemplo.com" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="adminSenhaRegister" class="form-label">Senha</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                            <input type="password" class="form-control" id="adminSenhaRegister" name="senha" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="adminConfirmarSenhaRegister" class="form-label">Confirmar Senha</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                            <input type="password" class="form-control" id="adminConfirmarSenhaRegister" name="confirmarSenha" required>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success btn-lg">Cadastrar Administrador</button>
+                        <p class="text-center mt-3">
+                            Já possui uma conta de administrador?
+                            <span class="toggle-form-link" data-target="loginForm">Faça Login</span>.
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Alternância entre formulários
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const formTitle = document.getElementById('formTitle');
+
+            document.querySelectorAll('.toggle-form-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    const targetFormId = this.getAttribute('data-target');
+
+                    if (targetFormId === 'registerForm') {
+                        loginForm.classList.remove('active');
+                        registerForm.classList.add('active');
+                        formTitle.innerHTML = '<i class="bi bi-person-fill-gear me-2"></i> Cadastro de Administrador';
+                    } else {
+                        registerForm.classList.remove('active');
+                        loginForm.classList.add('active');
+                        formTitle.innerHTML = '<i class="bi bi-shield-lock me-2"></i> Acesso Administrativo';
+                    }
+                });
+            });
+        });
+
+        // Simulação simples de login
+        document.querySelector('form[action="/api/admin/login"]').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('adminEmailLogin').value;
+            const senha = document.getElementById('adminSenhaLogin').value;
+
+            if (email === "admin@doaplus.com" && senha === "12345") {
+                localStorage.setItem("adminLogado", "true");
+                window.location.href = "dashboard-admin.html";
+            } else {
+                alert("Credenciais inválidas! Tente novamente.");
+            }
+        });
+    </script>
+</body>
+</html>

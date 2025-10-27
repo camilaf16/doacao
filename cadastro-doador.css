@@ -1,0 +1,67 @@
+/* ===== Tipografia ===== */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== Layout ===== */
+.register-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 7px 40px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+.register-container h2 {
+    margin-bottom: 30px;
+    color: #000000;
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+/* ===== Navbar ===== */
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #7BA05B;
+    text-shadow: #000000;
+}
+
+/* ===== Botões ===== */
+.btn-success {
+    background-color: #7BA05B;
+    border-color: #7BA05B;
+    font-weight: 500;
+}
+
+.btn-success:hover {
+    background-color: #7BA05B;
+    border-color: #7BA05B;
+}
+
+/* Container */
+.register-container label {
+    color: #000000;
+    font-size: 1.1rem;
+
+}
+
+/* Link de Login no Container */
+.register-container p a {
+    color: #7BA05B;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.303);
+    font-size: 1rem;
+}
+

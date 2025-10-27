@@ -1,0 +1,165 @@
+/* ==================== FONTES ==================== */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+    background-color: #f8f9fa !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #4c6239 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600;
+    color: #000000 !important;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #7BA05B !important;
+}
+
+.navbar .nav-link.active {
+    color: #7BA05B !important;
+}
+
+/* ==================== SEÇÃO PRINCIPAL ==================== */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #4c6239;
+}
+
+/* Cartões principais */
+.doador-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: transform 0.2s ease;
+}
+
+.doador-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Saldo */
+.saldo-display {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #7BA05B;
+    margin-bottom: 15px;
+}
+
+.saldo-label {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Botões de ação */
+.action-buttons .btn {
+    margin-right: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Botão principal */
+.btn-primary {
+    background-color: #7BA05B;
+    border-color: #7BA05B;
+}
+
+.btn-primary:hover {
+    background-color: #6c8b4d;
+    border-color: #6c8b4d;
+}
+
+/* Botão secundário */
+.btn-outline-success {
+    color: #4c6239;
+    border-color: #7BA05B;
+}
+
+.btn-outline-success:hover {
+    background-color: #7BA05B;
+    color: white;
+}
+
+/* ==================== TABELA ==================== */
+.history-table th {
+    background-color: #7BA05B;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+}
+
+.history-table td {
+    vertical-align: middle;
+}
+
+.text-success {
+    color: #7BA05B !important;
+}
+
+/* Badge (status) */
+.badge.bg-success {
+    background-color: #7BA05B !important;
+}
+
+/* ==================== MODAL ==================== */
+.modal-header.bg-primary {
+    background-color: #7BA05B !important;
+}
+
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.modal-body p {
+    color: #333;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+/* ==================== CUPOM GERADO ==================== */
+#cupomGerado {
+    border: 2px dashed #7BA05B;
+    background-color: #f0f9f0;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+@media (max-width: 768px) {
+    .saldo-display {
+        font-size: 2.5rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .doador-card {
+        padding: 20px;
+    }
+}

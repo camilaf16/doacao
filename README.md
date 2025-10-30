@@ -1,13 +1,15 @@
-VestePoints - Doação de Roupas com Recompensas
-Sobre o Projeto: O VestePoints é uma landing page estática (página de destino) desenvolvida para promover um programa inovador de doação de roupas que recompensa os doadores.
+# VestePoints - Doação de Roupas com Recompensas
 
-O objetivo é:
+## Sobre o Projeto: 
+O VestePoints é uma landing page estática (página de destino) desenvolvida para promover um programa inovador de doação de roupas que recompensa os doadores.
+
+## Objetivo:
 - Incentivar a economia circular.
 - Reduzir o desperdício de vestuário.
 - Gerar impacto social em comunidades carentes.
 - Os doadores são recompensados com créditos e descontos exclusivos em lojas parceiras. O arquivo principal, index.html, apresenta a proposta, detalha o funcionamento e os benefícios do programa.
 
-Tecnologias Utilizadas:
+## Tecnologias Utilizadas:
 Este projeto foi construído com as seguintes tecnologias e bibliotecas:
 - HTML5: Estrutura base do documento.
 - CSS3: Estilização, incluindo classes customizadas (style.css).
